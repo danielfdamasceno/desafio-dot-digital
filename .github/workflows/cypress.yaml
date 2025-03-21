@@ -1,4 +1,4 @@
-name: Cypress Tests Report
+name: Cypress Tests
 
 on:
   push:
@@ -25,12 +25,10 @@ jobs:
         run: |
           npm install
 
-      - name: Run Cypress tests with mochawesome reporter
+      - name: Install Cypress
         run: |
-          npx cypress run --reporter mochawesome --reporter-options reportDir=cypress/reports,overwrite=true,html=true,json=true
+          npx cypress install
 
-      - name: Upload Cypress Mochawesome report
-        uses: actions/upload-artifact@v3
-        with:
-          name: mochawesome-report
-          path: cypress/reports/*.html
+      - name: Run Cypress tests
+        run: |
+          npx cypress run
