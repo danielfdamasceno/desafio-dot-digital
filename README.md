@@ -3,7 +3,7 @@
 Desafio realizado para a vaga de QA
 
 
-# Testes Frontend com Cypress.
+# Testes Front-End com Cypress.
 
 ## Pré-requisitos mínimos de ambiente:
 
