@@ -1,12 +1,9 @@
-name: Cypress Tests
+name: Cypress Tests with Mochawesome Report
 
 on:
   push:
     branches:
-      - main   # ou a branch que você deseja
-  pull_request:
-    branches:
-      - main   # ou a branch que você deseja
+      - main
 
 jobs:
   cypress:
@@ -19,16 +16,18 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '22'  # Defina a versão do Node.js que você usa
+          node-version: '22'
 
       - name: Install dependencies
         run: |
           npm install
 
-      - name: Install Cypress
+      - name: Run Cypress tests with mochawesome reporter
         run: |
-          npx cypress install
+          npx cypress run --reporter mochawesome --reporter-options reportDir=cypress/reports,overwrite=true,html=true,json=true
 
-      - name: Run Cypress tests
-        run: |
-          npx cypress run
+      - name: Upload Cypress Mochawesome report
+        uses: actions/upload-artifact@v3
+        with:
+          name: mochawesome-report
+          path: cypress/reports/*.html
