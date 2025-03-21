@@ -1,0 +1,26 @@
+{
+  "name": "desafio-dot-digital",
+  "version": "1.0.0",
+  "description": "Desafio para a vaga de QA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielfdamasceno/desafio-dot-digital.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielfdamasceno/desafio-dot-digital/issues"
+  },
+  "homepage": "https://github.com/danielfdamasceno/desafio-dot-digital#readme",
+  "dependencies": {
+    "cypress": "^14.2.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1"
+  }
+}

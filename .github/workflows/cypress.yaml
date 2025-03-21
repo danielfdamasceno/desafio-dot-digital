@@ -1,0 +1,34 @@
+name: Cypress Tests
+
+on:
+  push:
+    branches:
+      - main   # ou a branch que você deseja
+  pull_request:
+    branches:
+      - main   # ou a branch que você deseja
+
+jobs:
+  cypress:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'  # Defina a versão do Node.js que você usa
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Install Cypress
+        run: |
+          npx cypress install
+
+      - name: Run Cypress tests
+        run: |
+          npx cypress run
